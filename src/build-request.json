@@ -1,0 +1,81 @@
+{
+  "kind": "build_request",
+  "title": "Rebrand UI to Adwait Loop with an “A” logo",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-16",
+      "text": "Generate a new brand logo mark that is a clean, standalone “A” logo and a matching wordmark for the app name “Adwait Loop”, and store them as static assets under frontend/public/assets/generated.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-12"
+        ],
+        "quotes": [
+          "branding update- change it to A logo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "New image files exist at the specified filenames in frontend/public/assets/generated.",
+        "The logo is visually an “A” mark (not the previous looping/spiral motif).",
+        "The wordmark reads “Adwait Loop” and matches the logo’s style (consistent color/line/weight)."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Update the app header branding in frontend/src/components/AppShell.tsx to use the new “A” logo and “Adwait Loop” wordmark assets (including updating the img alt text accordingly).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-12"
+        ],
+        "quotes": [
+          "branding update- change it to A logo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "AppShell header no longer references /assets/generated/logic-looper-logo.dim_512x512.png or /assets/generated/logic-looper-wordmark.dim_1200x300.png.",
+        "Header images render correctly on desktop and mobile breakpoints.",
+        "Both header image alt texts reference “Adwait Loop” (or “Adwait Loop logo/wordmark”)."
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Update remaining visible app branding strings from “Logic Looper” to “Adwait Loop” in user-facing UI locations surfaced in the current codebase (at minimum: Home page welcome header, footer copyright label, and the browser tab title in frontend/index.html).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6",
+          "msg-8",
+          "msg-12"
+        ],
+        "quotes": [
+          "also can you change from logic looper to LoopIQ – by Adwait",
+          "Rename this to Adwait Loop",
+          "branding update- change it to A logo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "frontend/index.html <title> is “Adwait Loop”.",
+        "Home page heading no longer says “Welcome to Logic Looper”.",
+        "AppShell footer no longer says “Logic Looper”.",
+        "No new user-facing text is introduced in any language other than English."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/components/ui (shadcn UI components are read-only in this environment).",
+    "Do not introduce new backend canisters/services; branding changes must be frontend/static-asset only."
+  ],
+  "nonGoals": [
+    "Changing gameplay logic, puzzle generation, persistence, or leaderboard behavior.",
+    "Adding new authentication providers or altering Internet Identity behavior."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal “A” logo mark, flat/vector style, transparent background (adwait-loop-a-logo.dim_512x512.png)",
+      "Typographic wordmark reading “Adwait Loop”, transparent background (adwait-loop-wordmark.dim_1200x300.png)"
+    ],
+    "edits": []
+  }
+}

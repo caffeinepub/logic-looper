@@ -1,0 +1,59 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-generate-a-new-brand-logo-mark-that-is-a-clean-standalone-a-logo-and-a-matching-wordmark-for-the-app-name-adwait-loop-and-store-them-as-static-assets-under-frontend-public-assets-generated",
+      "featureTitle": "Generate a new brand logo mark that is a clean, standalone “A” logo and a matching wordmark for the app name “Adwait Loop”, and store them as static assets under frontend/public/assets/generated.",
+      "files": [],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-app-header-branding-in-frontend-src-components-appshell-tsx-to-use-the-new-a-logo-and-adwait-loop-wordmark-assets-including-updating-the-img-alt-text-accordingly",
+      "featureTitle": "Update the app header branding in frontend/src/components/AppShell.tsx to use the new “A” logo and “Adwait Loop” wordmark assets (including updating the img alt text accordingly).",
+      "files": [
+        "frontend/src/components/AppShell.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-remaining-visible-app-branding-strings-from-logic-looper-to-adwait-loop-in-user-facing-ui-locations-surfaced-in-the-current-codebase-at-minimum-home-page-welcome-header-footer-copyright-label-and-the-browser-tab-title-in-frontend-index-html",
+      "featureTitle": "Update remaining visible app branding strings from “Logic Looper” to “Adwait Loop” in user-facing UI locations surfaced in the current codebase (at minimum: Home page welcome header, footer copyright label, and the browser tab title in frontend/index.html).",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/AppShell.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Adwait Loop: a client-first daily logic puzzle game designed for 365 days of engagement, with deterministic client-side puzzle generation/validation, offline IndexedDB progress, streak/heatmap motivation, and a minimalist backend for auth, user stats, and top-100 daily leaderboards.",
+  "architectural_notes": [
+    "Client-first architecture: puzzle generation, gameplay logic, hint limits, and solution validation run entirely on the client.",
+    "Deterministic puzzle generation seeded by date (and potentially user) to ensure consistency without server puzzle storage.",
+    "Offline-first with IndexedDB for daily progress and local state; game remains fully functional without internet.",
+    "Minimal backend (Node/Express + Prisma + Neon Postgres) stores only essential user/stats and top-100 daily scores; no puzzle content stored server-side.",
+    "Frontend stack target: React 18+, Redux Toolkit, Tailwind + Styled Components, Framer Motion, Day.js, crypto-js."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal “A” logo mark, flat/vector style, transparent background (adwait-loop-a-logo.dim_512x512.png)\n- Typographic wordmark reading “Adwait Loop”, transparent background (adwait-loop-wordmark.dim_1200x300.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-the-core-app-shell-for-logic-looper-with-a-home-screen-that-shows-today-s-puzzle-status-locked-unlocked-complete-current-streak-and-primary-actions-play-today-practice-optional-leaderboard-achievements-settings",
+      "title": "Create the core app shell for “Logic Looper” with a home screen that shows today’s puzzle status (locked/unlocked/complete), current streak, and primary actions: Play Today, Practice (optional), Leaderboard, Achievements, Settings.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-deterministic-date-seeded-daily-puzzle-selection-and-generation-on-the-client-for-any-local-calendar-date-choose-one-puzzle-type-from-the-rotating-set-and-generate-a-reproducible-puzzle-instance-from-a-stable-seed-derived-from-that-date",
+      "title": "Implement deterministic, date-seeded daily puzzle selection and generation on the client: for any local calendar date, choose one puzzle type from the rotating set and generate a reproducible puzzle instance from a stable seed derived from that date.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-at-least-3-playable-puzzle-types-in-the-rotating-system-from-number-matrix-sudoku-like-sequence-solver-pattern-matching-deduction-grid-binary-logic-with-interactive-ui-clear-rules-and-client-side-solution-validation-for-each-implemented-type",
+      "title": "Provide at least 3 playable puzzle types in the rotating system (from: Number Matrix/Sudoku-like, Sequence Solver, Pattern Matching, Deduction Grid, Binary Logic) with interactive UI, clear rules, and client-side solution validation for each implemented type.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-daily-progression-system-that-unlocks-a-new-puzzle-at-local-midnight-and-maintains-a-365-day-calendar-view-showing-completion-history-as-a-heatmap-style-activity-visualization",
+      "title": "Add a daily progression system that unlocks a new puzzle at local midnight and maintains a 365-day calendar view showing completion history as a heatmap-style activity visualization.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-offline-first-persistence-using-indexeddb-for-daily-puzzle-state-progress-completion-result-hints-used-today-streak-history-achievements-and-local-settings-gameplay-must-work-fully-without-network-connectivity",
+      "title": "Implement offline-first persistence using IndexedDB for: daily puzzle state/progress, completion result, hints used today, streak history, achievements, and local settings; gameplay must work fully without network connectivity.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-streak-and-scoring-system-computed-client-side-track-consecutive-day-completions-last-played-date-and-daily-score-including-optional-time-bonus-when-timed-mode-is-enabled",
+      "title": "Add a streak and scoring system computed client-side: track consecutive-day completions, last played date, and daily score (including optional time bonus when timed mode is enabled).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-client-managed-hint-system-with-a-limited-number-of-hints-per-day-reset-at-local-midnight-and-per-puzzle-hint-interactions-that-do-not-require-backend-calls",
+      "title": "Implement a client-managed hint system with a limited number of hints per day (reset at local midnight) and per-puzzle hint interactions that do not require backend calls.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-progressive-difficulty-adjustment-on-the-client-adjust-parameters-of-generated-puzzles-over-time-based-on-the-user-s-recent-performance-e-g-streak-solve-time-hint-usage-win-loss-while-keeping-the-daily-puzzle-deterministic-for-a-given-user-and-date",
+      "title": "Implement progressive difficulty adjustment on the client: adjust parameters of generated puzzles over time based on the user’s recent performance (e.g., streak, solve time, hint usage, win/loss), while keeping the daily puzzle deterministic for a given user and date.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-guest-mode-as-the-default-local-only-experience-and-integrate-internet-identity-for-optional-sign-in-signing-in-should-enable-syncing-only-the-minimal-data-needed-for-leaderboards-and-cross-device-continuity-without-breaking-offline-play",
+      "title": "Add “Guest Mode” as the default local-only experience and integrate Internet Identity for optional sign-in; signing in should enable syncing only the minimal data needed for leaderboards and cross-device continuity (without breaking offline play).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-frontend-leaderboard-screen-that-fetches-daily-top-100-from-the-backend-when-online-shows-the-user-s-rank-if-present-and-clearly-indicates-offline-unsynced-state-when-not-connected-or-not-signed-in",
+      "title": "Implement the frontend leaderboard screen that fetches daily top-100 from the backend when online, shows the user’s rank if present, and clearly indicates offline/unsynced state when not connected or not signed in.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-friend-challenge-sharing-via-url-by-encoding-a-shareable-puzzle-state-payload-puzzle-type-seed-date-optional-starting-state-into-the-url-opening-the-link-loads-the-same-puzzle-instance-client-side-without-requiring-backend-storage",
+      "title": "Add “Friend Challenge” sharing via URL by encoding a shareable puzzle state payload (puzzle type + seed/date + optional starting state) into the URL; opening the link loads the same puzzle instance client-side without requiring backend storage.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-client-side-achievements-badges-system-e-g-streak-milestones-no-hint-win-speed-win-with-an-achievements-screen-and-persistent-unlock-tracking-stored-locally",
+      "title": "Implement a client-side achievements/badges system (e.g., streak milestones, no-hint win, speed win) with an Achievements screen and persistent unlock tracking stored locally.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-polished-visual-theme-across-the-app-typography-spacing-color-palette-component-styling-suitable-for-a-modern-daily-puzzle-game-avoid-blue-purple-as-the-primary-palette-and-ensure-consistent-styling-across-all-screens",
+      "title": "Apply a coherent, polished visual theme across the app (typography, spacing, color palette, component styling) suitable for a modern daily puzzle game; avoid blue/purple as the primary palette and ensure consistent styling across all screens.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-for-branding-and-ui-accents-store-them-under-frontend-public-assets-generated-and-render-them-in-the-ui-e-g-app-header-empty-states-achievements",
+      "title": "Add generated static image assets for branding and UI accents, store them under frontend/public/assets/generated, and render them in the UI (e.g., app header, empty states, achievements).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-a-new-brand-logo-mark-that-is-a-clean-standalone-a-logo-and-a-matching-wordmark-for-the-app-name-adwait-loop-and-store-them-as-static-assets-under-frontend-public-assets-generated",
+      "title": "Generate a new brand logo mark that is a clean, standalone “A” logo and a matching wordmark for the app name “Adwait Loop”, and store them as static assets under frontend/public/assets/generated.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-header-branding-in-frontend-src-components-appshell-tsx-to-use-the-new-a-logo-and-adwait-loop-wordmark-assets-including-updating-the-img-alt-text-accordingly",
+      "title": "Update the app header branding in frontend/src/components/AppShell.tsx to use the new “A” logo and “Adwait Loop” wordmark assets (including updating the img alt text accordingly).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-remaining-visible-app-branding-strings-from-logic-looper-to-adwait-loop-in-user-facing-ui-locations-surfaced-in-the-current-codebase-at-minimum-home-page-welcome-header-footer-copyright-label-and-the-browser-tab-title-in-frontend-index-html",
+      "title": "Update remaining visible app branding strings from “Logic Looper” to “Adwait Loop” in user-facing UI locations surfaced in the current codebase (at minimum: Home page welcome header, footer copyright label, and the browser tab title in frontend/index.html).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Daily rotating logic puzzles (multiple puzzle types) with deterministic date-seeded generation and client-side solution validation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "365-day daily engagement system: midnight unlock/reset (local time), streak counter, and year-long activity heatmap",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Progressive difficulty that auto-adjusts based on user performance",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Optional timed challenge mode with extra rewards",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Client-managed hint system with limited hints per day",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Offline-first support with IndexedDB progress saving and full offline gameplay",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Authentication: Google OAuth 2.0, Truecaller integration, and guest mode (local-only)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Social/competitive: daily leaderboards (top 100 sync only), friend challenges via shareable URL puzzle state, and client-side achievements/badges",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Build a minimalist Motoko backend that stores and serves daily leaderboards (top 100 per date) and basic per-user stats keyed by principal; provide query/update methods for: submitScore(date, score, timeTaken, puzzleType), getLeaderboard(date), and getMyStats().",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Rebrand app from “Logic Looper” to “Adwait Loop” and update branding assets (logo to an “A” mark) across UI",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Adwait Loop",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
