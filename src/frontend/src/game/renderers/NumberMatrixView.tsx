@@ -33,7 +33,7 @@ export default function NumberMatrixView({ data, initialInput, onChange, disable
 
   return (
     <div className="flex justify-center">
-      <div className="inline-grid gap-1" style={{ gridTemplateColumns: `repeat(${data.size}, 1fr)` }}>
+      <div className="inline-grid gap-1 bg-blue-600 p-2 rounded-lg" style={{ gridTemplateColumns: `repeat(${data.size}, 1fr)` }}>
         {grid.map((row, i) =>
           row.map((cell, j) => (
             <Input
@@ -44,8 +44,10 @@ export default function NumberMatrixView({ data, initialInput, onChange, disable
               value={cell === null ? '' : cell}
               onChange={(e) => handleCellChange(i, j, e.target.value)}
               disabled={data.given[i][j] || disabled}
-              className={`w-12 h-12 text-center text-lg font-semibold ${
-                data.given[i][j] ? 'bg-muted font-bold' : ''
+              className={`w-12 h-12 text-center text-lg font-semibold text-black ${
+                data.given[i][j] 
+                  ? 'bg-orange-300 font-bold disabled:opacity-100 disabled:text-black' 
+                  : 'bg-orange-400'
               }`}
             />
           ))

@@ -1,67 +1,34 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T20:24:11.631Z",
+  "generatedAt": "2026-02-11T20:39:51.845Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-16",
-        "summary": "Generate a new brand logo mark that is a clean, standalone “A” logo and a matching wordmark for the app name “Adwait Loop”, and store them as static assets under frontend/public/assets/generated.",
+        "id": "REQ-19",
+        "summary": "Update the Number Matrix puzzle UI colors in frontend/src/game/renderers/NumberMatrixView.tsx so the grid background is blue, prefilled (given) squares are light orange, empty editable squares are a slightly darker orange, and all numbers are black.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/adwait-loop-a-logo.dim_512x512.png",
-          "frontend/public/assets/generated/adwait-loop-wordmark.dim_1200x300.png"
+          "frontend/src/game/renderers/NumberMatrixView.tsx"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/adwait-loop-a-logo.dim_512x512.png",
-          "frontend/public/assets/generated/adwait-loop-wordmark.dim_1200x300.png"
-        ]
-      },
-      {
-        "id": "REQ-17",
-        "summary": "Update the app header branding in frontend/src/components/AppShell.tsx to use the new “A” logo and “Adwait Loop” wordmark assets (including updating the img alt text accordingly).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/AppShell.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/AppShell.tsx"
-        ]
-      },
-      {
-        "id": "REQ-18",
-        "summary": "Update remaining visible app branding strings from “Logic Looper” to “Adwait Loop” in user-facing UI locations surfaced in the current codebase (at minimum: Home page welcome header, footer copyright label, and the browser tab title in frontend/index.html).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/index.html",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/components/AppShell.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/index.html",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/components/AppShell.tsx"
+          "frontend/src/game/renderers/NumberMatrixView.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.html",
-    "frontend/public/assets/generated/adwait-loop-a-logo.dim_512x512.png",
-    "frontend/public/assets/generated/adwait-loop-wordmark.dim_1200x300.png",
-    "frontend/src/components/AppShell.tsx",
-    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/game/renderers/NumberMatrixView.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

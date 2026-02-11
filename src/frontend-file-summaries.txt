@@ -15,7 +15,7 @@
   "frontend/src/game/puzzles/sequenceSolver.ts": "Sequence Solver puzzle implementation with pattern-based generation, validation, and hint logic using properly typed sequence array with null values.",
   "frontend/src/game/puzzles/patternMatch.ts": "Pattern Matching puzzle implementation with visual/logical pattern generation, validation, and hint logic.",
   "frontend/src/game/dailyPuzzle.ts": "Daily puzzle generation entry point that combines date seed, puzzle type selection, and difficulty to produce deterministic puzzle instances.",
-  "frontend/src/game/renderers/NumberMatrixView.tsx": "Interactive UI for Number Matrix puzzles with grid input cells, given/editable state styling, and input validation.",
+  "frontend/src/game/renderers/NumberMatrixView.tsx": "Interactive UI for Number Matrix puzzles with blue grid background, light orange given cells, darker orange editable cells, and black text for all numbers.",
   "frontend/src/game/renderers/SequenceSolverView.tsx": "Interactive UI for Sequence Solver puzzles with numbered input fields, pattern rule display, and blank/given cell handling.",
   "frontend/src/game/renderers/PatternMatchView.tsx": "Interactive UI for Pattern Matching puzzles with visual pattern display and selectable option buttons.",
   "frontend/src/game/renderers/PuzzleRenderer.tsx": "Puzzle renderer switch component that selects the correct puzzle view, wires validation/hints/reset actions, and manages hint count display using consumeHint function from useHints hook.",

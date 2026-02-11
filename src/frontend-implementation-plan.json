@@ -1,69 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Rebrand UI to Adwait Loop with new “A” logo",
+  "title": "Number Matrix grid color adjustments",
   "requirements": [
     {
-      "id": "REQ-16",
-      "summary": "Add new Adwait Loop “A” logo mark and matching wordmark as generated static assets.",
+      "id": "REQ-19",
+      "summary": "Update Number Matrix renderer styling so the grid is blue, given cells are light orange, editable cells are darker orange, and all digits are black without affecting other puzzle UIs.",
       "acceptanceCriteria": [
-        "New image files exist at the specified filenames in frontend/public/assets/generated.",
-        "The logo is visually an “A” mark (not the previous looping/spiral motif).",
-        "The wordmark reads “Adwait Loop” and matches the logo’s style (consistent color/line/weight)."
+        "When viewing the Number Matrix puzzle, the overall grid area behind/between cells renders with a blue background.",
+        "Cells that are prefilled/disabled (data.given[row][col] === true) render with a light orange background.",
+        "Cells that are editable (data.given[row][col] === false) render with a slightly darker orange background.",
+        "Both prefilled and user-entered digits render in black text.",
+        "These color updates apply only to the Number Matrix grid and do not unintentionally change styling of other puzzle types or general app components."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/adwait-loop-a-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated minimal “A” logo mark image asset (transparent background) at this exact path and filename."
-        },
-        {
-          "path": "frontend/public/assets/generated/adwait-loop-wordmark.dim_1200x300.png",
-          "operation": "create",
-          "description": "Add the generated “Adwait Loop” wordmark image asset (transparent background) at this exact path and filename."
-        }
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "summary": "Update AppShell header to use the new Adwait Loop logo/wordmark assets and alt text.",
-      "acceptanceCriteria": [
-        "AppShell header no longer references /assets/generated/logic-looper-logo.dim_512x512.png or /assets/generated/logic-looper-wordmark.dim_1200x300.png.",
-        "Header images render correctly on desktop and mobile breakpoints.",
-        "Both header image alt texts reference “Adwait Loop” (or “Adwait Loop logo/wordmark”)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/AppShell.tsx",
+          "path": "frontend/src/game/renderers/NumberMatrixView.tsx",
           "operation": "modify",
-          "description": "Replace header branding image src values to use frontend/public/assets/generated/adwait-loop-a-logo.dim_512x512.png and frontend/public/assets/generated/adwait-loop-wordmark.dim_1200x300.png, and update img alt text to reference “Adwait Loop”."
-        }
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "summary": "Replace remaining user-facing “Logic Looper” strings with “Adwait Loop” (Home heading, footer label, browser tab title).",
-      "acceptanceCriteria": [
-        "frontend/index.html <title> is “Adwait Loop”.",
-        "Home page heading no longer says “Welcome to Logic Looper”.",
-        "AppShell footer no longer says “Logic Looper”.",
-        "No new user-facing text is introduced in any language other than English."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Update the document <title> text from “Logic Looper” to “Adwait Loop”."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Update the visible Home page welcome heading text from “Welcome to Logic Looper” to “Welcome to Adwait Loop”."
-        },
-        {
-          "path": "frontend/src/components/AppShell.tsx",
-          "operation": "modify",
-          "description": "Update the footer copyright label to replace “Logic Looper” with “Adwait Loop” while keeping the rest of the footer behavior unchanged."
+          "description": "Adjust Tailwind classes in the Number Matrix grid wrapper and per-cell Input className: add a blue background (with padding/rounding as needed) to the grid container so gaps/border area show blue; set given cells to a light orange background and editable cells to a slightly darker orange background; force all digits to render in black (including disabled/given cells) by applying text-black and overriding disabled text/opacity styling locally. Ensure changes are scoped to this renderer only and do not modify any files under frontend/src/components/ui."
         }
       ]
     }

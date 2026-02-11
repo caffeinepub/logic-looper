@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Adwait Loop: a client-first daily logic puzzle game designed for 365 days of engagement, with deterministic client-side puzzle generation/validation, offline IndexedDB progress, streak/heatmap motivation, and a minimalist backend for auth, user stats, and top-100 daily leaderboards.",
   "architectural_notes": [
     "Client-first architecture: puzzle generation, gameplay logic, hint limits, and solution validation run entirely on the client.",
@@ -11,7 +11,6 @@
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Minimal “A” logo mark, flat/vector style, transparent background (adwait-loop-a-logo.dim_512x512.png)\n- Typographic wordmark reading “Adwait Loop”, transparent background (adwait-loop-wordmark.dim_1200x300.png)",
   "existing_features": [
     {
       "id": "feature-create-the-core-app-shell-for-logic-looper-with-a-home-screen-that-shows-today-s-puzzle-status-locked-unlocked-complete-current-streak-and-primary-actions-play-today-practice-optional-leaderboard-achievements-settings",
@@ -148,6 +147,14 @@
         "REQ-18"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-number-matrix-puzzle-ui-colors-in-frontend-src-game-renderers-numbermatrixview-tsx-so-the-grid-background-is-blue-prefilled-given-squares-are-light-orange-empty-editable-squares-are-a-slightly-darker-orange-and-all-numbers-are-black",
+      "title": "Update the Number Matrix puzzle UI colors in frontend/src/game/renderers/NumberMatrixView.tsx so the grid background is blue, prefilled (given) squares are light orange, empty editable squares are a slightly darker orange, and all numbers are black.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -210,6 +217,12 @@
     {
       "id": "AR-19",
       "summary": "Rebrand app from “Logic Looper” to “Adwait Loop” and update branding assets (logo to an “A” mark) across UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Update Number Matrix (grid) UI colors: blue grid background, prefilled squares light orange, empty input squares slightly darker orange, and all numbers black",
       "reqIds": [],
       "status": "pending"
     }
